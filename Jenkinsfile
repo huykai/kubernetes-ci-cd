@@ -23,6 +23,6 @@ node {
     stage "Deploy"
 
         sh "docker image ls "
-        #kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
+        
 
 }
