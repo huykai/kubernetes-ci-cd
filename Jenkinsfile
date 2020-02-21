@@ -22,7 +22,7 @@ node {
 
     stage "Deploy"
 
-        kubernetesDeploy configs: "applications/${appName}/k8s/deployment.yaml"
+        sh "kubectl applications/${appName}/k8s/deployment.yaml"
         
 
 }
