@@ -22,7 +22,7 @@ node {
 
     stage "Deploy"
 
-        sh "kubectl applications/${appName}/k8s/deployment.yaml"
+        sh "kubectl apply -f applications/${appName}/k8s/deployment.yaml"
         
 
 }
