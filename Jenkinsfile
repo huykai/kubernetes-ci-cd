@@ -20,7 +20,11 @@ node {
 
         sh "docker push ${imageName}"
 
-    stage "Deploy"
+    stage "UnDeploy Old"
+
+        sh "kubectl delete -f applications/${appName}/k8s/deployment.yaml"
+    
+    stage "Deploy New"
 
         sh "kubectl apply -f applications/${appName}/k8s/deployment.yaml"
 
