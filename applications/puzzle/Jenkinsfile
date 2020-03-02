@@ -15,13 +15,13 @@ node {
 
     stage "Build"
 
-        sh "docker build -t ${imageName} -f applications/puzzle/Dockerfile applications/puzzle"
+        sh "sudo docker build -t ${imageName} -f applications/puzzle/Dockerfile applications/puzzle"
 
     stage "Push"
 
-        sh "docker push ${imageName}"
+        sh "sudo docker push ${imageName}"
 
     stage "Deploy"
 
-        kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
+        kubernetesDeploy configs: "applications/${appName}/k8s/deployment_custom.yaml", kubeconfigId: 'kenzan_kubeconfig'
 }
