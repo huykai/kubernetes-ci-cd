@@ -15,11 +15,11 @@ node {
 
     stage "Build"
 
-        sh "docker build -t ${imageName} applications/puzzle"
+        sh "sudo docker build -t ${imageName} applications/puzzle"
 
     stage "Push"
 
-        sh "docker push ${imageName}"
+        sh "sudo docker push ${imageName}"
 
     stage "Deploy"
 

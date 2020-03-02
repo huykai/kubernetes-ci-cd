@@ -2,7 +2,7 @@ import io from 'socket.io-client';
 import constants from '../constants';
 import * as types from './actionTypes';
 
-const baseUrl = `http://monitor-scale.${constants.minikubeIp}.xip.io`;
+const baseUrl = `http://monitor-scale.${constants.minikubeIp}.xip.io:32101`;
 const socket = io(baseUrl);
 
 export function getPods () {
@@ -12,7 +12,7 @@ export function getPods () {
         resp.json()
       ))
       .then(json => {
-        const pods = json.pods.map(pod => (
+        const pods = (!json.pods) ? null:json.pods.map(pod => (
           concatServiceName(pod.key)
         ));
         dispatch({type: types.websocket.GET_PODS, pods});
