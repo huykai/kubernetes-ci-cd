@@ -15,7 +15,7 @@ node {
 
     stage "Build"
 
-        sh "sudo docker build -t ${imageName} -f application/puzzle/Dockerfile applications/puzzle"
+        sh "sudo docker build -t ${imageName} -f applications/puzzle/Dockerfile applications/puzzle"
 
     stage "Push"
 
