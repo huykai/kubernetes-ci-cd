@@ -23,6 +23,6 @@ node {
 
     stage "Deploy"
 
-       kubernetesDeploy configs: "applications/puzzle/k8s/deployment_custom.yaml", credentialsType: 'SSH', ssh: [sshCredentialsId: 'f3af67ad-7b97-424e-9466-ffb18247545a', sshServer: 'https://192.168.1.73:6443']
+       kubernetesDeploy configs: "applications/puzzle/k8s/deployment_custom.yaml", credentialsType: 'SSH', ssh: [sshCredentialsId: 'f3af67ad-7b97-424e-9466-ffb18247545a', sshServer: '192.168.1.73:6443']
 //, kubeconfigId: 'kenzan_kubeconfig'
 }
