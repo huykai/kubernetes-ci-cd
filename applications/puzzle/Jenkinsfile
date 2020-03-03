@@ -23,6 +23,6 @@ node {
 
     stage "Deploy"
 
-       kubernetesDeploy configs: "applications/puzzle/k8s/deployment_custom.yaml", kubeConfig: [path: '""'], kubeconfigId: 'kenzan_kubeconfig'], secretName: '', ssh: [sshCredentialsId: 'f3af67ad-7b97-424e-9466-ffb18247545a', sshServer: '192.168.1.73'], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://192.168.1.73:6443']
+       kubernetesDeploy configs: "applications/puzzle/k8s/deployment_custom.yaml", kubeConfig: [path: '""'], kubeconfigId: 'kenzan_kubeconfig', secretName: '', ssh: [sshCredentialsId: 'f3af67ad-7b97-424e-9466-ffb18247545a', sshServer: '192.168.1.73'], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://192.168.1.73:6443']
 //, kubeconfigId: 'kenzan_kubeconfig'
 }
