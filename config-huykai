@@ -1,0 +1,38 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: dashboardcerts/huykai_hp_deepin.org.crt
+    server: https://192.168.1.73
+  name: development
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://192.168.1.73
+  name: scratch
+contexts:
+- context:
+    cluster: development
+    namespace: frontend
+    user: developer
+  name: dev-frontend
+- context:
+    cluster: development
+    namespace: jenkins
+    user: developer
+  name: dev-jenkins
+- context:
+    cluster: scratch
+    namespace: default
+    user: experimenter
+  name: exp-scratch
+current-context: dev-jenkins
+kind: Config
+preferences: {}
+users:
+- name: developer
+  user:
+    client-certificate: dashboardcerts/huykai_hp_deepin.org.crt
+    client-key: dashboardcerts/huykai_hp_deepin.org.key
+- name: experimenter
+  user:
+    password: Huykai123
+    username: huykai
