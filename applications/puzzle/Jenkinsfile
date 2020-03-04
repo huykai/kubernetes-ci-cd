@@ -24,5 +24,4 @@ node {
     stage "Deploy"
 
        kubernetesDeploy configs: 'applications/puzzle/k8s/deployment_custom.yaml', kubeconfigId: 'jenkins_config'
-//, kubeconfigId: 'kenzan_kubeconfig'
 }
