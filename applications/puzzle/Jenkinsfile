@@ -23,5 +23,5 @@ node {
 
     stage "Deploy"
 
-       kubernetesDeploy configs: 'applications/puzzle/k8s/deployment_custom.yaml', kubeconfigId: 'jenkins_config'
+       kubernetesDeploy configs: 'applications/puzzle/k8s/deployment_custom.yaml', kubeConfig: [path: ''], kubeconfigId: 'jenkins_config', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
 }
