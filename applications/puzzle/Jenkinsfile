@@ -23,6 +23,6 @@ node {
 
     stage "Deploy"
 
-       kubernetesDeploy configs: 'applications/puzzle/k8s/deployment_custom.yaml', kubeConfig: [path: 'kenzan_kubeconfig'], kubeconfigId: 'kenzan_kubeconfig'
+       kubernetesDeploy configs: 'applications/puzzle/k8s/deployment_custom.yaml', kubeConfig: [path: 'kenzan_kubeconfig.yaml'], kubeconfigId: 'kenzan_kubeconfig'
 //, kubeconfigId: 'kenzan_kubeconfig'
 }
