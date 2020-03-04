@@ -9,7 +9,7 @@ node {
     tag = readFile('commit-id').replace("\n", "").replace("\r", "")
     appName = "hello-kenzan"
     registryHost = "127.0.0.1:30400/"
-    imageName = "${registryHost}${appName}:${tag}"
+    imageName = "${registryHost}${appName}:huykaitest"
     env.BUILDIMG=imageName
 
     stage "Build"
@@ -20,8 +20,12 @@ node {
 
         sh "docker push ${imageName}"
 
-    stage "Deploy"
+    stage "UnDeploy Old"
 
-        kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
+        sh "kubectl delete -f applications/${appName}/k8s/deployment.yaml"
+    
+    stage "Deploy New"
+
+        sh "kubectl apply -f applications/${appName}/k8s/deployment.yaml"
 
 }
